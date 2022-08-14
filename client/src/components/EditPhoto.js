@@ -40,7 +40,7 @@ const EditPhoto = (props) => {
         .catch((err) => setErrors(err.response.data.error.errors)) 
     }
 
-    const deletePet = (id, user_id) =>{
+    const deletePhoto = (id, user_id) =>{
         axios.delete(`http://localhost:8000/api/photos/${id}`)
         .then((res)=>{
             console.log(res.data);
@@ -57,7 +57,7 @@ const EditPhoto = (props) => {
                     <div className="photo_topbar">
                         <Button variant="contained" href={`/dashboard/${photo.user_id}`}>Home</Button>
                         <div className="photo_topbar_right">
-                        <Button variant="contained" color="error" onClick={() => deletePet(photo._id, photo.user_id)}>Delete</Button>
+                        <Button variant="contained" color="error" onClick={() => deletePhoto(photo._id, photo.user_id)}>Delete</Button>
                         </div>
                     </div>
                     <p/>

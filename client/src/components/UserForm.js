@@ -16,7 +16,6 @@ const UserForm = (props) => {
 
     const onSubmitHandler = (e) => {
         e.preventDefault();
-        console.log("CAME HERE");
 
         axios.post('http://localhost:8000/api/users', {first_name, last_name, email, password})
             .then(res=>{
@@ -24,7 +23,7 @@ const UserForm = (props) => {
                 console.log(res.data);
 
                 //setUsersList([...usersList, res.data])
-                navigate("/dashboard/"+res.data.user._id);
+                navigate("/dashboard/"+res._id);
             })
             .catch((err) => setErrors(err.response.data.error.errors))     
     }

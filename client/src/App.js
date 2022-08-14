@@ -2,7 +2,6 @@ import './App.css';
 import React, {useEffect, useState} from 'react';
 import {BrowserRouter, Routes, Route} from 'react-router-dom';
 import Photos from './components/Photos';
-//import Pet from './components/Pet';
 import UserForm from './components/UserForm';
 import Login from './components/Login';
 import EditPhoto from './components/EditPhoto';
