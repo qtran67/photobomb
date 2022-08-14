@@ -29,7 +29,7 @@ const Photos = (props) => {
     }
 
     const uploadPhoto = (e) =>{
-        e. preventDefault();
+        e.preventDefault();
         
         console.log(file);
         
