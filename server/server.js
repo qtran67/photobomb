@@ -17,7 +17,7 @@ app.use(fileupload({
     limits: {fileSize:50*1024*1024},
     abortOnLimit: true,
 }));
-app.use(busboy());a
+app.use(busboy());
 
 app.post('/uploadFile', async (req, res) => {
     console.log(req.files.file)
