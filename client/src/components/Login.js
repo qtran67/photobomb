@@ -7,7 +7,7 @@ const Login = (props) => {
     const {usersList, setUsersList} = props;
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    const [errors, setErrors] = useState({});
+    const [errors, setErrors] = useState("");
 
     const navigate = useNavigate();
 
@@ -23,7 +23,7 @@ const Login = (props) => {
                 console.log("NAVIGATING "+res.data._id);
                 navigate("/dashboard/"+res.data._id);
             })
-            .catch((err) => {console.log(err);setErrors(err.response.data.error.errors)})     
+            .catch((err) => {setErrors(err.response.data.message)})     
     }
     
     return (
@@ -38,12 +38,11 @@ const Login = (props) => {
                             <label>Email:</label><br/>
                             <input type="text" value={email} onChange = {(e)=>setEmail(e.target.value)}/>
                         </div>
-                        {errors.email && <span style={{color:"red"}}>{errors.email.message}</span>}
                         <div>
                             <label>Password:</label><br/>
                             <input type="password" value={password} onChange = {(e)=>setPassword(e.target.value)}/>
                         </div>
-                        {errors.password && <span style={{color:"red"}}>{errors.password.message}</span>}
+                        {errors && <span style={{color:"red"}}>{"Invalid email/password"}</span>}
                         <br/>
                         <div className="photo_topbar">
                         <Link to={"/register"}>Create account</Link>

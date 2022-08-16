@@ -64,14 +64,14 @@ module.exports = {
         const user = await User.findOne({ email: req.body.email });
 
         if(user === null) { // email not found in users collection
-            return res.status(400).json({ message: 'email required', error: err });;
+            return res.status(400).json({ message: 'email required' });;
         }
 
         // let's compare the supplied password to the hashed password in the database
         const correctPassword = await bcrypt.compare(req.body.password, user.password);
     
         if(!correctPassword) {  // password wasn't a match!
-            return res.status(400).json({ message: 'wrong password', error: err });;
+            return res.status(400).json({ message: 'wrong password' });;
         }
     
         // the password was correct
